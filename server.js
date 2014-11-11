@@ -7,19 +7,18 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	middleware = require('./middleware.js'),
 	LocalStrategy = require('passport-local').Strategy,
-	port = process.env.express_port || 9001,
+	port = env.expressPort,
 	dbUser = env.dbUser,
 	dbPass = env.dbPass,
 	dbHost = env.dbHost;
 	dbName = env.dbName;
 
 var sequelize = new sql(dbName, dbUser, dbPass, {
-	// Move to env
 	host: dbHost
 });
 
 // Move the middleware to ./middlware.js
-app.use(express.static(__dirname + '.public'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(session({ secret:  env.expressSecret, saveUninitialized: true, resave: true}));
 app.use(passport.initialize());
