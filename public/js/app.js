@@ -1,6 +1,7 @@
 var app = angular.module('lds-report', ['ngRoute']);
 
 app.config(['$routeProvider', function($routeProvider){
+
 	$routeProvider
 		.when('/', {
 			templateUrl: '/views/home/home.html',
@@ -25,4 +26,5 @@ app.config(['$routeProvider', function($routeProvider){
 		.otherwise({
 			redirectTo: '/'
 		})
+
 }])
